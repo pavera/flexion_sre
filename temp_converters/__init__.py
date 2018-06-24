@@ -74,7 +74,6 @@ class TempConverter(object):
             if round(answer) == round(Decimal(student_answer)):
                 result = "correct"
             else:
-                print("answer: {0}, student_answer: {1}".format(round(answer), round(Decimal(student_answer))))
                 result = "incorrect"
         except InvalidTemp as exc:
             result = "invalid"

@@ -79,6 +79,5 @@ class TestConversionLogic(TempTestCase):
         self.assertEqual(result, 'correct')
 
 
-
 if __name__ == '__main__':
     unittest.main()
