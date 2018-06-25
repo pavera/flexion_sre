@@ -1,4 +1,4 @@
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 
 
 class InvalidTemp(Exception):
@@ -71,7 +71,7 @@ class TempConverter(object):
         conversion = "{0}_to_{1}".format(orig_scale[0].lower(), dest_scale[0].lower())
         try:
             answer = getattr(self, conversion)(Decimal(orig_temp))
-            if round(answer) == round(Decimal(student_answer)):
+            if answer.quantize(0, rounding=ROUND_HALF_UP) == Decimal(student_answer).quantize(0, rounding=ROUND_HALF_UP):
                 result = "correct"
             else:
                 result = "incorrect"
